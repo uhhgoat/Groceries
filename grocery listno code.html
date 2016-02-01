@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html>
+	<!--
+	
+		You have been given a page with a list of grocery items.  By clicking on those items, the user will be able to fill up a shopping cart with items.
+		
+		Each time the user clicks on one of the items in the list, the program will store that item in an array and display all of the items in the cart (see the screen shot).
+		
+		When displaying the items in the cart, you should not display any item more than once.  Instead, you will put the quantity of that item in parentheses next to the item image.
+		
+		The cart is displayed in the div with the id of "cart".
+		
+		Refer to the screen shot for an idea of how it's supposed to look.  Note that there is a 3 in the parentheses next to the cookies, meaning that the user clicked on cookies 3 times.
+	
+	-->
+	<head>
+		<title>Grocery List</title>
+		
+		<style>
+			h1 {text-align:center; font:36pt calibri bold; margin-top:20px;}
+		
+			ul {margin-left:50px; margin-top:50px; list-style-type:none; text-align:center; display:inline-block; width:40%;}
+			
+			li {font:18pt calibri black; border:thick outset grey; width:300px; background-color:lightgrey; cursor:pointer; margin-top:10px;}
+			
+			img {width:110px;}
+			
+			div {display:inline-block; width:48%; font:18pt 'comic sans ms' black; vertical-align:top; margin-top:50px; text-align:center;}
+			
+			div#bground {width:100%; position:fixed; top:-40px; left:0px; text-align:center; z-index:-1; opacity:0.25;}
+			div#bground img {width:98%;}
+			
+		</style>
+		
+		<script type = "text/javascript">
+			function storedVariables()
+			{
+				cart = document.getElementById("cart") ;
+				bread = "bread.jpg" ;
+				cheese = "cheese.jpg" ;
+				cookies = "cookies.jpg" ;
+				dishdetergent = "dish detergent.jpg" ;
+				fruit = "fruit.jpg" ;
+				icecream = "ice cream.jpg" ;
+				laundrydetergent = "laundry detergent.jpg" ;
+				milk = "milk.jpg" ;
+				napkins = "napkins.jpg" ;
+				oj = "oj.jpg" ;
+				papertowels = "paper towels.jpg" ;
+				vegetables = "vegetables.jpg" ;
+				countbread = 0 ;
+				countcheese = 0 ;
+				countcookies = 0 ;
+				countdishdetergent = 0 ;
+				countfruit = 0 ;
+				counticecream = 0 ;
+				countlaundrydetergent = 0 ;
+				countmilk = 0 ;
+				countnapkins = 0 ;
+				countoj = 0 ;
+				countpapertowels = 0 ;
+				countvegetables = 0 ;
+			}
+			function theClick(food, countfood)
+			{
+				conditions(countfood) ;
+				var imgTag = document.createElement("IMG") ;
+				var theImg = document.createAttribute("src") ;
+				theImg.value = food ;
+				imgTag.setAttributeNode(theImg) ;
+				cart.appendChild(imgTag) ;
+				countfood++ ;
+				
+			}
+			function conditions(food)
+			{
+				if(food >= 1)
+				{
+					
+				}
+			}
+		</script>
+	</head>
+		
+	<body onload = "storedVariables();">
+		<div id = "bground"><img src = "supermarket.jpg" /></div>
+		<h1>Shopping List</h1>
+		<ul>
+			<li onclick = "theClick(bread, countbread) ;">Bread</li>
+			<li onclick = "theClick(milk, countmilk) ;">Milk</li>
+			<li onclick = "theClick(cheese, countcheese) ;">Cheese</li>
+			<li onclick = "theClick(oj, countoj) ;">Juice</li>
+			<li onclick = "theClick(fruit, countfruit) ;">Fruit</li>
+			<li onclick = "theClick(vegetables, countvegetables) ;">Vegetables</li>
+			<li onclick = "theClick(icecream, counticecream) ;">Ice Cream</li>
+			<li onclick = "theClick(cookies, countcookies) ;">Cookies</li>
+			<li onclick = "theClick(laundrydetergent, countlaundrydetergent) ;">Laundry Detergent</li>
+			<li onclick = "theClick(dishdetergent, countdishdetergent) ;">Dish Detergent</li>
+			<li onclick = "theClick(papertowels, countpapertowels) ;">Paper Towels</li>
+			<li onclick = "theClick(napkins, countnapkins) ;">Napkins</li>
+		</ul>
+		<div>
+			<h2>Shopping Cart</h2>
+			<span id = "cart"></span>
+		</div>
+	</body>
+</html>
